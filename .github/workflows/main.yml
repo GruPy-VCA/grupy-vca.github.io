@@ -1,0 +1,34 @@
+name: Auto Build Events Summary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'events/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Executar script de automação
+      run: python build.py
+
+    - name: Commit e Push das alterações
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add events_summary.json || true
+        git add events/ || true
+        git diff --quiet && git diff --staged --quiet || (git commit -m "bot: atualização automática de eventos e fotos" && git push)

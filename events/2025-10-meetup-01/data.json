@@ -1,0 +1,20 @@
+{
+    "id": "meetup-01",
+    "title": "Primeiro encontro oficial do GruPy-VCA",
+    "description": "Primeiro encontro oficial do GruPy-VCA na cidade de Vitória da Conquista sediado no Instituto Federal da Bahia - Campus Vitória da Conquista",
+    "date_start": "2025-10-14",
+    "date_end": "2025-10-17",
+    "link": "https://www.even3.com.br/ii-econtro-grupy-vca-635036/",
+    "images": {
+        "cover": "capa.jpg",
+        "gallery_path": "fotos/",
+        "gallery": [
+            "01.jpg",
+            "02.jpg",
+            "03.jpg",
+            "04.jpg",
+            "05.jpg"
+        ]
+    },
+    "folder_path": "events/2025-10-meetup-01"
+}

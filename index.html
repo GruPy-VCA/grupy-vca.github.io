@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GruPy-VCA | Comunidade Python de Vitória da Conquista</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="GruPy-VCA é a comunidade de usuários Python de Vitória da Conquista e região. Participe dos nossos encontros, meetups e eventos para aprender e compartilhar conhecimento sobre Python.">
+    <meta name="keywords"
+        content="Python, GruPy, Vitória da Conquista, comunidade, programação, desenvolvimento, meetup, Bahia, tecnologia">
+    <meta name="author" content="GruPy-VCA">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://grupy-vca.github.io/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grupy-vca.github.io/">
+    <meta property="og:title" content="GruPy-VCA | Comunidade Python de Vitória da Conquista">
+    <meta property="og:description"
+        content="O Grupo de Usuários Python de Vitória da Conquista e Região. Participe dos nossos encontros e meetups!">
+    <meta property="og:image" content="https://grupy-vca.github.io/assets/logo.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="GruPy-VCA">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://grupy-vca.github.io/">
+    <meta name="twitter:title" content="GruPy-VCA | Comunidade Python de Vitória da Conquista">
+    <meta name="twitter:description"
+        content="O Grupo de Usuários Python de Vitória da Conquista e Região. Participe dos nossos encontros e meetups!">
+    <meta name="twitter:image" content="https://grupy-vca.github.io/assets/logo.png">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-python {
+            background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #3776ab;
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Skip Link para Acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="bg-slate-900 text-white py-16 px-4" role="banner">
+        <div class="max-w-5xl mx-auto text-center">
+            <img src="assets/logo.png"
+                alt="Logo do GruPy-VCA - Grupo de Usuários Python de Vitória da Conquista, representado por uma cobra Python estilizada"
+                class="h-32 mx-auto mb-6" width="128" height="128">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">GruPy-VCA</h1>
+            <p class="text-xl text-gray-300 mb-8">O Grupo de Usuários Python de Vitória da Conquista e Região.</p>
+            <nav aria-label="Links de contato">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://chat.whatsapp.com/CD3u1GZd7hbD6EK8ZYqHuv"
+                        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2"
+                        target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo do WhatsApp do GruPy-VCA">
+                        <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i> WhatsApp
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="max-w-6xl mx-auto py-12 px-4" role="main">
+        <section aria-labelledby="eventos-heading">
+            <h2 id="eventos-heading" class="text-3xl font-bold mb-8 text-center">Nossos Encontros</h2>
+            <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" aria-live="polite"
+                aria-busy="true">
+                <p class="text-center col-span-full py-10 text-gray-500">Carregando encontros...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="gallery-modal"
+        class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4" role="dialog"
+        aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+        <h2 id="modal-title" class="sr-only">Galeria de fotos do evento</h2>
+
+        <!-- Botão Fechar -->
+        <button onclick="closeModal()"
+            class="absolute top-5 right-5 text-white text-3xl hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded z-10"
+            aria-label="Fechar galeria de fotos (Esc)" type="button">&times;</button>
+
+        <!-- Botão Anterior -->
+        <button onclick="prevPhoto()"
+            class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition focus:outline-none focus:ring-2 focus:ring-white z-10"
+            aria-label="Foto anterior (seta esquerda)" type="button">
+            <i class="fas fa-chevron-left text-xl md:text-2xl" aria-hidden="true"></i>
+        </button>
+
+        <!-- Botão Próxima -->
+        <button onclick="nextPhoto()"
+            class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition focus:outline-none focus:ring-2 focus:ring-white z-10"
+            aria-label="Próxima foto (seta direita)" type="button">
+            <i class="fas fa-chevron-right text-xl md:text-2xl" aria-hidden="true"></i>
+        </button>
+
+        <!-- Conteúdo do Modal -->
+        <div id="modal-content" class="max-w-4xl w-full flex flex-col items-center px-16">
+            <!-- Contador de fotos -->
+            <p id="photo-counter" class="text-white text-sm mb-2" aria-live="polite">1 / 1</p>
+
+            <img id="modal-img" src="" alt="Foto do evento GruPy-VCA" class="max-h-[70vh] rounded shadow-lg">
+
+            <!-- Thumbnails -->
+            <div id="modal-thumbs" class="flex gap-2 mt-4 overflow-x-auto p-2 max-w-full" role="list"
+                aria-label="Miniaturas das fotos"></div>
+
+            <!-- Instruções de navegação -->
+            <p class="text-gray-400 text-xs mt-2 hidden md:block">Use as setas do teclado para navegar ou Esc para
+                fechar</p>
+        </div>
+    </div>
+
+    <footer class="bg-gray-100 py-10 mt-12 border-t border-gray-200" role="contentinfo">
+        <div class="max-w-5xl mx-auto text-center px-4">
+            <p class="mb-4">Seguimos o <a href="https://www.python.org.br/codigo-de-conduta" target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-600 hover:text-blue-800 underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"><strong>Código
+                        de Conduta</strong></a> da Python Brasil.</p>
+            <nav aria-label="Redes sociais">
+                <ul class="flex justify-center gap-6 text-2xl text-gray-600 list-none">
+                    <li>
+                        <a href="https://github.com/grupy-vca" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full p-1 inline-block"
+                            aria-label="GitHub do GruPy-VCA">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/flaviofilipedev" target="_blank" rel="noopener noreferrer"
+                            class="hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-full p-1 inline-block"
+                            aria-label="LinkedIn de Flavio Filipe">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <p class="mt-6 text-sm text-gray-500">© 2026 GruPy-VCA. Feito com <span aria-label="Python">Python</span> e
+                <span aria-label="café">☕</span>.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
